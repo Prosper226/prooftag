@@ -1,0 +1,19 @@
+{
+    "name": "string",
+    "first_name": "string",
+    "login": "string",
+    "role_id": 0,
+    "authorize": 0,
+    "matricule": "string",
+    "password": "string"
+},
+
+{
+    "name": "string",
+    "first_name": "string",
+    "login": "string",
+    "role_id": 0,
+    "can_allowed_to_do": 0,
+    "matricule": "string",
+    "password": "string"
+}

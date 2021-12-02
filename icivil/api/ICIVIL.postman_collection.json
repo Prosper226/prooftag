@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "02aaf381-e3d9-4e78-9388-1c92293b37e4",
+		"name": "ICIVIL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "get_All_Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/users",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_User_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/users/2",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_current_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/authuser",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"authuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_new_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"string\",\n    \"first_name\": \"string\",\n    \"login\": \"string\",\n    \"role_id\": 1,\n    \"can_allowed_to_do\": 1,\n    \"matricule\": \"string\",\n    \"password\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/users",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updated_user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"rrrr\",\n    \"first_name\": \"string\",\n    \"login\": \"string\",\n    \"role_id\": 1,\n    \"can_allowed_to_do\": 1,\n    \"matricule\": \"string\",\n    \"password\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/users/2",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Citizens",
+			"item": [
+				{
+					"name": "get_All_Citizens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/citizens",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"citizens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_Citizen_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/citizens/6",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"citizens",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_new_citizens",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Prosper\",\n    \"first_name\": \"SeDgo\",\n    \"unique_id_id\": 2,\n    \"user_id\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/citizens",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"citizens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updated_citizen",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/citizens/1",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"citizens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BirthCivilState",
+			"item": [
+				{
+					"name": "get_All_Birth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/birth_civil_status_certificates",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"birth_civil_status_certificates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_Birth_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/birth_civil_status_certificates/1",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"birth_civil_status_certificates",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_new_birth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"civil_status_center\": \"string\",\n    \"commune\": \"string\",\n    \"name_of_officer\": \"string\",\n    \"citizen_id\": 6,\n    \"volet_number\": \"string\",\n    \"act_number\": \"string\",\n    \"sex\": \"string\",\n    \"father_name\": \"string\",\n    \"mother_name\": \"string\",\n    \"father_profession\": \"string\",\n    \"mother_profession\": \"string\",\n    \"parents_domicil\": \"string\",\n    \"declarant\": \"string\",\n    \"date_of_birth\": \"string\",\n    \"time_of_birth\": \"string\",\n    \"declaration_act\": \"string\",\n    \"birth_act\": \"string\",\n    \"date_of_declaration\": \"string\",\n    \"mother_number\" : \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/birth_civil_status_certificates",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"birth_civil_status_certificates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updated_birth",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"civil_status_center\": \"string\",\n    \"commune\": \"Bogodogo\",\n    \"name_of_officer\": \"string\",\n    \"citizen_id\": 6,\n    \"volet_number\": \"string\",\n    \"act_number\": \"string\",\n    \"sex\": \"string\",\n    \"father_name\": \"string\",\n    \"mother_name\": \"string\",\n    \"father_profession\": \"string\",\n    \"mother_profession\": \"string\",\n    \"parents_domicil\": \"string\",\n    \"declarant\": \"string\",\n    \"date_of_birth\": \"string\",\n    \"time_of_birth\": \"string\",\n    \"declaration_act\": \"string\",\n    \"birth_act\": \"string\",\n    \"date_of_declaration\": \"string\",\n    \"mother_number\" : \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/birth_civil_status_certificates/2",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"birth_civil_status_certificates",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "WEB",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\" : \"frederic@micronet-inc.net\",\n    \"password\" : \"test\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/login",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MOBILE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\" : \"frederic@micronet-inc.net\",\n    \"password\" : \"test\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prooftag.micronet-inc.net/api/mobilelogin",
+							"protocol": "https",
+							"host": [
+								"prooftag",
+								"micronet-inc",
+								"net"
+							],
+							"path": [
+								"api",
+								"mobilelogin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
