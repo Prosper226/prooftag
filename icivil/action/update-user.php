@@ -1,47 +1,33 @@
 <?php
+
     session_start();
-    $success = 1;
+    require_once "../../vendor/autoload.php";
+    require_once("../api/users/PUT.php");
+
+    $success = 0;
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
+        if(isset($_POST['name']) and !empty($_POST['id'])){
+                $name = $_POST['name'];
+                $first_name = $_POST['first_name'];
+                $matricule = $_POST['matricule'];
     
-    // if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
-    //     if(isset($_POST['username'],$_POST['password'])){
-    //         $username = $_POST['username'];
-    //         $password = $_POST['password'];
-    //         $url = "https://icivil.micronet-inc.net/api/login";
-
-    //         $curl = curl_init($url);
-    //         curl_setopt($curl, CURLOPT_URL, $url);
-    //         curl_setopt($curl, CURLOPT_POST, true);
-    //         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    //         $headers = array(
-    //             "Content-Type: application/json",
-    //         );
-    //         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-
-    //         $data = <<<DATA
-    //         {
-    //             "login" : "$username",
-    //             "password" : "$password"
-    //         }
-    //         DATA;
-
-    //         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-
-    //         //for debug only!
-    //         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-    //         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-    //         $resp = curl_exec($curl);
-    //         curl_close($curl);
-    //         $resp = json_decode($resp);
-
-    //         if(isset($resp->jwt)){
-    //             $success = 1;
-    //             $_SESSION['username'] = $username;
-    //             $_SESSION['token'] = $resp->jwt;
-    //         }
-    //     }
-    // }
+                $id = $_POST['id'];
+    
+                // $user_id = $_SESSION['user']->id;
+    
+                $data = array(
+                    'name' => $name,
+                    'first_name' => $first_name,
+                    'matricule' => $matricule,
+                    // 'user_id' => $user_id,
+                );
+        
+            if(update_user($id, $data)){
+                $success = 1;
+            }
+        }
+    }
 
 
     echo json_encode(array(

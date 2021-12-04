@@ -10,29 +10,36 @@
             $password = $_POST['password'];
             // $success = login($username,$password);
 
-    $client = new Client([
-        'base_uri' => 'https://prooftag.micronet-inc.net/api/',
-        'http_errors' => false
-    ]);
-    $response = $client->request('POST', 'login', [
-        'json' => [
-            'login' => $username,
-            'password' => $password
-        ]
-    ]);
+            $client = new Client([
+                'base_uri' => 'https://prooftag.micronet-inc.net/api/',
+                'http_errors' => false
+            ]);
 
-    if($response->getStatusCode() != 200){
-        $success = 0;
-    }
+            $response = $client->request('POST', 'login', [
+                'json' => [
+                    'login' => $username,
+                    'password' => $password
+                ]
+            ]);
 
-    $body = $response->getBody();
-    $arr_body = json_decode($body);
-    $_SESSION['jwt'] = $arr_body->jwt;
-    $_SESSION['user'] = $arr_body->user;
-    $success = 1;
+            if($response->getStatusCode() != 200){
+                $success = 0;
+            }else{
+                $body = $response->getBody();
+                $arr_body = json_decode($body);
+                $_SESSION['jwt'] = $arr_body->jwt;
+                $_SESSION['user'] = $arr_body->user;
+                $success = 1;
+            }
 
-}
-} 
+            // $body = $response->getBody();
+            // $arr_body = json_decode($body);
+            // $_SESSION['jwt'] = $arr_body->jwt;
+            // $_SESSION['user'] = $arr_body->user;
+            // $success = 1;
+
+        }
+    } 
 
     echo json_encode(array(
         'success' => $success,

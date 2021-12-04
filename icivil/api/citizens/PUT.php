@@ -25,7 +25,7 @@
         $arr_body = json_decode($body);
 
         if(! isset($arr_body->id)){
-            return false;
+            return 0;
         }
         return true;
     }

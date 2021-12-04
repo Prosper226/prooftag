@@ -1,32 +1,6 @@
 <?php
     include_once "action/session.php";
     include_once("api/users/GET.php");
-
-    $token = $_SESSION['jwt']; // '15|4UEg9FGX1k4X5YfTTeHloBwcf0aTGoZeCN3DUa7q';
-    
-    $set_init_data = true; 
-
-    if(isset($_GET['id']) and !empty($_GET['id'])){
-        $id = $_GET['id'];
-        $data = get_User_ByID($id);
-        if(!empty($data->id)){
-            $set_init_data = false;
-        }
-    }
-
-    if($set_init_data){ 
-        if (!isset($data)) 
-        $data = new stdClass();
-        $data->id = '';
-        $data->name = '';
-        $data->first_name = '';
-        $data->login = "";
-        // $data->role->name = '';
-        $data->authorize = '';
-        $data->matricule = "";
-    }
-
-    
 ?>
 
 <!doctype html>
@@ -100,7 +74,7 @@
                             </li>
                             <li><a href="#">Utilisateurs</a> <span class="bread-slash">/</span>
                             </li>
-                            <li><span class="bread-blod">Modification</span>
+                            <li><span class="bread-blod">Creation</span>
                             </li>
                         </ul>
                     </div>
@@ -132,7 +106,7 @@
                                 <form id="user_update_form" method="post">
                                     <div class="">
                                         <div class="login-bg">
-                                            <input type="hidden" name="id" value="<?=$data->id?>"/>
+                                           
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
@@ -141,7 +115,7 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="name" value="<?=$data->name?>"/>
+                                                        <input type="text" name="name" placeholder="Nom de d'utilisateur"/>
                                                         <!-- <i class="fa fa-user login-user" aria-hidden="true"></i> -->
                                                     </div>
                                                 </div>
@@ -154,12 +128,12 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="first_name" value="<?=$data->first_name?>"/>
+                                                        <input type="text" name="first_name" placeholder="Prenom de d'utilisateur"/>
                                                         <!-- <i class="fa fa-envelope login-user" aria-hidden="true"></i> -->
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="row">
+                                            <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
                                                         <p>Login</p>
@@ -167,37 +141,25 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="login" value="<?=$data->login?>"/>
-                                                        <!- <i class="fa fa-phone login-user" aria-hidden="true"></i> ->
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <div class="login-input-head">
-                                                        <p>Role</p>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <div class="login-input-area">
-                                                        <input type="text" name="role_id" value="<?=$data->role->name?>" readonly/>
-                                                        <!-- <i class="fa fa-briefcase login-user" aria-hidden="true"></i> -->
+                                                        <input type="text" name="login" placeholder="Login de d'utilisateur" />
+                                                        <!- <i class="fa fa-phone login-user" aria-hidden="true"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="row">
+                                            
+                                            <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
-                                                        <p>Autorization</p>
+                                                        <p>Mot de passe</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="authorize" value="<?=$data->authorize?>"/>
-                                                        <!- <i class="fa fa-calendar login-user" aria-hidden="true"></i> ->
+                                                        <input type="text" name="password" placeholder="Mot de passe de d'utilisateur"/>
+                                                        <!-- <!- <i class="fa fa-calendar login-user" aria-hidden="true"></i> -> -->
                                                     </div>
                                                 </div>
-                                            </div> -->
+                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
@@ -206,8 +168,26 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="matricule"  value="<?=$data->matricule?>"/>
+                                                        <input type="text" name="matricule" placeholder="Matricule de d'utilisateur"/>
                                                         <!-- <i class="fa fa-calendar login-user" aria-hidden="true"></i> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="login-input-head">
+                                                        <p>Role</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <div class="interested-input-area">
+                                                        <select name="role_id">
+                                                            <!-- <option value="none" selected="" disabled="">Selection du sexe</option> -->
+                                                            <option selected="" value="3">Observateur</option>
+                                                            <option value="2">Editeur</option>
+                                                            <option  value="1">Administrateur</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
@@ -217,7 +197,7 @@
                                                 <div class="col-lg-4"></div>
                                                 <div class="col-lg-8">
                                                     <div class="login-button-pro">
-                                                        <button type="submit" class="login-button login-button-lg">Modifier l'utilisateur</button>
+                                                        <button type="submit" class="login-button login-button-lg">Creer l'utilisateur</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,10 +258,10 @@
         $(document).ready(function() {
             $('#user_update_form').submit(function(e) {
                 e.preventDefault();
-                confirm('Etes vous sur de vouloir modifier cet utilisateur ?');
+                confirm('Etes vous sur de vouloir creer cet utilisateur ?');
                 $.ajax({ 
                     type: "POST",
-                    url: 'action/update-user.php',
+                    url: 'action/add-user.php',
                     data: $(this).serialize(),
                     success: function(response)
                     {

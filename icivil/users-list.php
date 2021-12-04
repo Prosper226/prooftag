@@ -4,7 +4,6 @@
 
     $token = $_SESSION['jwt']; //'15|4UEg9FGX1k4X5YfTTeHloBwcf0aTGoZeCN3DUa7q';
     $DATAS = get_All_Users();
-
 ?>
 
 <!doctype html>

@@ -5,16 +5,16 @@ session_start();
 
 use GuzzleHttp\Client;
 
-function update_user($id, $data = array()){
+function add_user($data = array()){
     
     $client =  new Client([
         'base_uri' => 'https://prooftag.micronet-inc.net/api/',
         'http_errors' => false
     ]);
 
-    $url = 'users/'.$id;
+    $url = 'users';
     $token = $_SESSION['jwt'];
-    $response = $client->request('PUT', $url, [
+    $response = $client->request('POST', $url, [
         'headers' => [
             'Authorization' => "Bearer $token"
         ],
@@ -31,16 +31,30 @@ function update_user($id, $data = array()){
     return true;
 }
 
-//    print('<pre>');
+//     print('<pre>');
 
 // $data = array(
 //     'name' => 'ILBOUDO',
 //     'first_name' => 'Windinmalgda',
-//     "matricule" => "17059"
+//     "matricule" => "17059",
+//     "login" => "pso@gmail.com",
+//     "role_id"=> 3,
+//     "can_allowed_to_do" => 1,
+//     "matricule" => "ppp",
+//     "password" => "tot"
 // );
-// $id = 7;
 
-// print_r(update_user($id, $data));
+
+// print_r(add_user($data));
 
 
 ?>
+
+
+
+
+
+
+
+
+

@@ -25,7 +25,7 @@
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">UTILISATEURS <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
                                 <div role="menu" class="dropdown-menu animated flipInX">
                                     <a href="users-list.php" class="dropdown-item">Consultation</a>
-                                    <!-- <a href="#" class="dropdown-item">Modifications</a> -->
+                                    <a href="users-add.php" class="dropdown-item">Creation</a>
                                     <!-- <a href="#" class="dropdown-item">Statistiques</a> -->
                                 </div>
                             </li>
