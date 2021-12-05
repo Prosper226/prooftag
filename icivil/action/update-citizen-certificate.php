@@ -16,6 +16,7 @@
             $civil_status_center = $_POST['civil_status_center'];
             $commune = $_POST['commune'];
             $name_of_officer = $_POST['name_of_officer'];
+            $volet_number = $_POST["volet_number"];
             $act_number = $_POST['act_number'];
             $sex = $_POST['sex'];
             $father_name = $_POST['father_name'];
@@ -26,9 +27,9 @@
             $declarant = $_POST['declarant'];
             $date_of_birth = $_POST['date_of_birth'];
             $time_of_birth = $_POST['time_of_birth'];
-            $declaration_act = $_POST['declaration_act'];
-            $birth_act = $_POST['birth_act'];
-            $date_of_declaration = $_POST['date_of_declaration'];
+            // $declaration_act = $_POST['declaration_act'];
+            // $birth_act = $_POST['birth_act'];
+            // $date_of_declaration = $_POST['date_of_declaration'];
             $mother_number = $_POST['mother_number'];
     
             $citizen_id = $_POST['citizen_id'];
@@ -49,9 +50,9 @@
                 "declarant"=> $declarant,
                 "date_of_birth"=> $date_of_birth,
                 "time_of_birth"=> $time_of_birth,
-                "declaration_act"=> $declaration_act,
-                "birth_act"=> $birth_act,
-                "date_of_declaration"=> $date_of_declaration,
+                // "declaration_act"=> $declaration_act,
+                // "birth_act"=> $birth_act,
+                // "date_of_declaration"=> $date_of_declaration,
                 "mother_number" => $mother_number,
         
                 "citizen_id"=> $citizen_id,

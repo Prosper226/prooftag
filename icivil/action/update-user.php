@@ -8,20 +8,20 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
         if(isset($_POST['name']) and !empty($_POST['id'])){
-                $name = $_POST['name'];
-                $first_name = $_POST['first_name'];
-                $matricule = $_POST['matricule'];
-    
-                $id = $_POST['id'];
-    
-                // $user_id = $_SESSION['user']->id;
-    
-                $data = array(
-                    'name' => $name,
-                    'first_name' => $first_name,
-                    'matricule' => $matricule,
-                    // 'user_id' => $user_id,
-                );
+            $name = $_POST['name'];
+            $first_name = $_POST['first_name'];
+            $matricule = $_POST['matricule'];
+
+            $id = $_POST['id'];
+
+            // $user_id = $_SESSION['user']->id;
+
+            $data = array(
+                'name' => $name,
+                'first_name' => $first_name,
+                'matricule' => $matricule,
+                // 'user_id' => $user_id,
+            );
         
             if(update_user($id, $data)){
                 $success = 1;

@@ -320,12 +320,12 @@
                                                     <div class="interested-input-area">
                                                         <select name="sex">
                                                             <!-- <option value="none" selected="" disabled="">Selection du sexe</option> -->
-                                                            <?php if($data->birth_civil_status_certificate->sex === 'masculin') { ?>
-                                                                <option selected="" value="masculinn">Masculin</option>
-                                                                <option value="feminin">Feminin</option>
+                                                            <?php if($data->birth_civil_status_certificate->sex === 'Homme') { ?>
+                                                                <option selected="" value="Homme">Homme</option>
+                                                                <option value="Femme">Femme</option>
                                                             <?php } else { ?>
-                                                                <option selected="" value="feminin">Feminin</option>
-                                                                <option value="masculin">Masculin</option>
+                                                                <option selected="" value="Femme">Femme</option>
+                                                                <option value="Homme">Homme</option>
                                                             <?php } ?>
                                                         </select>
                                                     </div>
@@ -519,6 +519,7 @@
     <!-- main JS
 		============================================ -->
     <script src="js/main.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
         $('#citizen_update_form').submit(function(e) {
@@ -557,20 +558,21 @@
                 data: $(this).serialize(),
                 success: function(response)
                 {
+                    console.log(response);
                     var jsonData = JSON.parse(response);
-                    console.log(jsonData);
+                    // console.log(jsonData);
                     if (jsonData.success)
                     {
                         // setTimeout(function () {
                         //     window.location.href = "dashboard.php";
                         // },250);
                         snackBarAllert(jsonData.message);
-                        alert('Mise a jour effectuee');
+                        // alert('Mise a jour effectuee');
                     }
                     else
                     {
                         snackBarAllert(jsonData.message);
-                        console.log('Echec de mise a jour');
+                        // alert('Echec de mise a jour');
                     }
                 }
             });

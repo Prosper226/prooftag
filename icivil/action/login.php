@@ -43,7 +43,7 @@
 
     echo json_encode(array(
         'success' => $success,
-        'message' => $success ?'Connexion reussie': 'Echec de connexion'
+        'message' => $success ?'Connexion reussie': 'Mot de passe ou login incorrect'
     ));
 
 ?>

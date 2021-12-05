@@ -56,6 +56,7 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -97,7 +98,7 @@
                             <div class="main-income-head">
                                 <h2>Citoyens</h2>
                                 <div class="main-income-phara">
-                                    <p id="list_citizens">Voir</p>
+                                    <p id="list_citizens" class="btn btn-primary">Voir</p>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +125,7 @@
                             <div class="main-income-head">
                                 <h2>Utilisateurs</h2>
                                 <div class="main-income-phara order-cl">
-                                    <p id="list_users">voir</p>
+                                    <p id="list_users" class="btn btn-warning">voir</p>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +152,7 @@
                             <div class="main-income-head">
                                 <h2>Extraits</h2>
                                 <div class="main-income-phara visitor-cl">
-                                    <p>voir</p>
+                                    <p>-</p>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +179,7 @@
                             <div class="main-income-head">
                                 <h2>Autres</h2>
                                 <div class="main-income-phara low-value-cl">
-                                    <p></p>
+                                    <p>-</p>
                                 </div>
                             </div>
                         </div>
@@ -318,11 +319,13 @@
     <script src="js/data-table/bootstrap-table-export.js"></script>
     <!-- main JS
 		============================================ -->
-    <script src="js/main.js">
-        $(document).ready(function(){
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // alert('Bienvenue sur le panel d\'administion ICIVIL')
             $('#list_citizens').click(function(){
                     window.location.href = 'citizens-list.php';
+                    // alert('list citizens');
             });
 
             $('#list_users').click(function(){

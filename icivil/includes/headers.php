@@ -45,7 +45,7 @@
                                     <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
                                 </a>
                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
-                                    <li><a href="#"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>Mon Profile</a>
+                                    <li><a href="user-profile.php"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>Mon Profile</a>
                                     </li>
                                      
                                 
