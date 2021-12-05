@@ -1,8 +1,7 @@
 <?php
-    session_start();
     include_once "action/session.php";
     include_once("api/users/GET.php");
-    print_r($_SESSION);
+    // print_r($_SESSION);
 ?>
 
 <!doctype html>
@@ -69,14 +68,14 @@
                 <div class="col-lg-12">
                     <div class="breadcome-list shadow-reset">
                         <div class="breadcome-heading">
-                            <h2>UTILISATEURS</h2>
+                            <h2>PROFILE</h2>
                         </div>
                         <ul class="breadcome-menu">
                             <li><a href="#">Administration</a> <span class="bread-slash">/</span>
                             </li>
-                            <li><a href="#">Utilisateurs</a> <span class="bread-slash">/</span>
+                            <!-- <li><a href="#">Utilisateurs</a> <span class="bread-slash">/</span> -->
                             </li>
-                            <li><span class="bread-blod">Creation</span>
+                            <li><span class="bread-blod">Profile</span>
                             </li>
                         </ul>
                     </div>
@@ -95,7 +94,7 @@
                     <div class="sparkline10-list shadow-reset mg-t-30">
                         <div class="sparkline10-hd">
                             <div class="main-sparkline10-hd">
-                                <h1>Mise a jour des informations utilisateur</h1>
+                                <h1>Profile utilisateur</h1>
                                 <div class="sparkline10-outline-icon">
                                     <span class="sparkline10-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                     <!-- <span><i class="fa fa-wrench"></i></span>
@@ -117,7 +116,7 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="name" placeholder="Nom de d'utilisateur"/>
+                                                        <input type="text" name="name" value="<?=$_SESSION['user']->name?>" placeholder="Nom de d'utilisateur" readonly/>
                                                         <!-- <i class="fa fa-user login-user" aria-hidden="true"></i> -->
                                                     </div>
                                                 </div>
@@ -130,7 +129,7 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="first_name" placeholder="Prenom de d'utilisateur"/>
+                                                        <input type="text" name="first_name" value="<?=$_SESSION['user']->first_name?>" placeholder="Prenom de d'utilisateur" readonly/>
                                                         <!-- <i class="fa fa-envelope login-user" aria-hidden="true"></i> -->
                                                     </div>
                                                 </div>
@@ -143,13 +142,13 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="login" placeholder="Login de d'utilisateur" />
+                                                        <input type="text" name="login" value="<?=$_SESSION['user']->login?>"placeholder="Login de d'utilisateur" readonly/>
                                                         <!- <i class="fa fa-phone login-user" aria-hidden="true"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                             
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
                                                         <p>Mot de passe</p>
@@ -157,11 +156,11 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="password" placeholder="Mot de passe de d'utilisateur"/>
-                                                        <!-- <!- <i class="fa fa-calendar login-user" aria-hidden="true"></i> -> -->
+                                                        <input type="text" name="password" value="<?=$_SESSION['user']->password?>" placeholder="Mot de passe de d'utilisateur"/>
+                                                        <!- <i class="fa fa-calendar login-user" aria-hidden="true"></i> ->
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
@@ -170,13 +169,13 @@
                                                 </div>
                                                 <div class="col-lg-8">
                                                     <div class="login-input-area">
-                                                        <input type="text" name="matricule" placeholder="Matricule de d'utilisateur"/>
+                                                        <input type="text" name="matricule" value="<?=$_SESSION['user']->matricule?>" placeholder="Matricule de d'utilisateur" readonly/>
                                                         <!-- <i class="fa fa-calendar login-user" aria-hidden="true"></i> -->
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
                                                         <p>Role</p>
@@ -185,21 +184,21 @@
                                                 <div class="col-lg-8">
                                                     <div class="interested-input-area">
                                                         <select name="role_id">
-                                                            <!-- <option value="none" selected="" disabled="">Selection du sexe</option> -->
+                                                            <option value="none" selected="" disabled="">Selection du sexe</option>
                                                             <option selected="" value="3">Observateur</option>
                                                             <option value="2">Editeur</option>
                                                             <option  value="1">Administrateur</option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             
                                             <div class="row">
                                                 <div class="col-lg-4"></div>
                                                 <div class="col-lg-8">
                                                     <div class="login-button-pro">
-                                                        <button type="submit" class="login-button login-button-lg">Creer l'utilisateur</button>
+                                                        <!-- <button type="submit" class="login-button login-button-lg">Creer l'utilisateur</button> -->
                                                     </div>
                                                 </div>
                                             </div>

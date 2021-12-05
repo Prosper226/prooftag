@@ -121,8 +121,8 @@
     <div class="login-form-area mg-t-30 mg-b-40">
         <div class="container">
             <div id="snackbar"></div>
-            <div class="row">
-                <div class="col-lg-12">
+        <div class="row">
+                <div class="col-lg-6">
                     <div class="sparkline10-list shadow-reset mg-t-30">
                         <div class="sparkline10-hd">
                             <div class="main-sparkline10-hd">
@@ -136,11 +136,9 @@
                         </div>
                         <div class="sparkline11-graph">
                             <div class="input-knob-dial-wrap">
-                                
                                 <form id="citizen_update_form" class="" method="post">
                                     <div class="">
                                         <div class="login-bg">
-                                        
                                             <input type="hidden" name="id" value="<?=$data->id?>"/>
                                             <div class="row">
                                                 <div class="col-lg-4">
@@ -204,20 +202,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        
                                         </div>
                                     </div>
-                                    <!-- <div class="col-lg-6">
-                                    </div> -->
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="sparkline10-list shadow-reset mg-t-30">
                         <div class="sparkline10-hd">
                             <div class="main-sparkline10-hd">
@@ -232,11 +224,10 @@
                         <div class="sparkline11-graph">
                             <div class="input-knob-dial-wrap">
                                 <form id="citizen_update_certificate_form" method="post">
-                                    <div class="" >
+                                    <div class="">
                                         <div class="login-bg">
                                         <input type="hidden" name="citizen_id"  value="<?=$data->id?>"/>
                                         <input type="hidden" name="id"  value="<?=$data->birth_civil_status_certificate->id?>"/>
-                                        <div class="col-lg-6">
                                             <div class="row">
                                                 <div class="col-lg-4">
                                                     <div class="login-input-head">
@@ -350,8 +341,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6">
+
 
                                             <div class="row">
                                                 <div class="col-lg-4">
@@ -450,12 +440,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                    
                                             <div class="row">
                                                 <div class="col-lg-4"></div>
                                                 <div class="col-lg-8">
                                                     <div class="login-button-pro">
-                                                        <button type="submit" class="btn btn-success" width="100%">Modifier le certificat</button>
+                                                        <button type="submit" class="btn btn-success">Modifier le certificat</button>
                                                         <img id="loading-birth" src="img/spinner.gif" width="40"/>
                                                     </div>
                                                 </div>
@@ -467,7 +457,11 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
+            <div class="row">
+                
+                <!-- <div class="col-lg-2"></div> -->
+            
             </div>
         </div>
     </div>
