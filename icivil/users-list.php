@@ -142,8 +142,8 @@
                                                   <td><?=$data->matricule?></td>
                                                   <td>
                                                       <div class="btn-group project-list-ad">
-                                                          <?php $status = ($data->cqn_allowed_to_do)?' Actif':' Inactif';?>
-                                                          <center><a href="user-status.php?id=<?=$data->id?>&status=<?=$data->cqn_allowed_to_do?>" class="btn btn-white btn-action btn-xs"><i class="fa fa-user"></i><?=$status?></a></center>
+                                                          <?php $status = ($data->can_allowed_to_do)?' Actif':' Inactif';?>
+                                                          <center><a href="user-status.php?id=<?=$data->id?>&status=<?=$data->can_allowed_to_do?>" class="btn btn-white btn-action btn-xs"><i class="fa fa-user"></i><?=$status?></a></center>
                                                         </div>
                                                   </td>
                                                   <td>
