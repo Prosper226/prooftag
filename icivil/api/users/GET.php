@@ -15,11 +15,13 @@
       ]);
       $url = 'users';
       $token = $_SESSION['jwt'];
+      $inc = 1;
       do{
          $response = $client->request('GET', $url, [
             'headers' => [
                'Authorization' => "Bearer $token"
-            ]
+            ],
+            'query' => ['page' => $inc]
          ]);
 
          $body = $response->getBody();
@@ -29,7 +31,7 @@
             $arrayobj = array_merge($arrayobj, $arr_body->data);
          }
          if (isset($arr_body->links->next) and !empty($arr_body->links->next)){
-            $url = substr($arr_body->links->next, 0, strlen('https://prooftag.micronet-inc.net/api/'));
+            $inc++;
          }else{
             $pagination = false;
          }
