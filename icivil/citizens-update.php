@@ -26,25 +26,7 @@
         $data->name = '';
         $data->first_name = '';
         $data->unique_id = '';
-        // $data->birth_civil_status_certificate = null;
-        // $data->date_of_birth = '';
-        // $data->commune = ''; 
-        // $data->sex = '';
-        // $data->civil_status_center =  "";
-        // $data->name_of_officer = "";
-        // $data->citizen_id = '';
-        // $data->volet_number = "";
-        // $data->act_number = "";
-        // $data->father_name = "";
-        // $data->mother_name = "";
-        // $data->father_profession = "";
-        // $data->mother_profession = "";
-        // $data->parents_domicil = "";
-        // $data->declarant = "";
-        // $data->date_of_birth = "";
-        // $data->time_of_birth = "";
-        // $data->declaration_act = "";
-        // $data->birth_act = "";
+
     }
     $birthPart = false;
     if(isset($data->birth_civil_status_certificate) and $data->birth_civil_status_certificate){
@@ -110,7 +92,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
     <!-- Header top area start-->
-   <?php include('includes/headers.php'); ?>
+    <?php include('includes/headers.php'); ?>
     <!-- Mobile Menu end -->
     <!-- Breadcome start-->
     <div class="breadcome-area mg-t-40 mg-b-30">
@@ -215,7 +197,8 @@
                                                 <div class="col-lg-4"></div>
                                                 <div class="col-lg-8">
                                                     <div class="login-button-pro">
-                                                        <button type="submit" class="login-button login-button-lg">Modifier le citoyen</button>
+                                                        <button type="submit" class="btn btn-success">Modifier le citoyen</button>
+                                                        <img id="loading-citizen" src="img/spinner.gif" width="40"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -462,7 +445,8 @@
                                                 <div class="col-lg-4"></div>
                                                 <div class="col-lg-8">
                                                     <div class="login-button-pro">
-                                                        <button type="submit" class="login-button login-button-lg">Modifier le certificat</button>
+                                                        <button type="submit" class="btn btn-success">Modifier le certificat</button>
+                                                        <img id="loading-birth" src="img/spinner.gif" width="40"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -522,63 +506,73 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-        $('#citizen_update_form').submit(function(e) {
-            e.preventDefault();
-            confirm('Etes vous sur de vouloir modifier le citoyen ?');
-            $.ajax({ 
-                type: "POST",
-                url: 'action/update-citizen.php',
-                data: $(this).serialize(),
-                success: function(response)
-                {
-                    var jsonData = JSON.parse(response);
-                    if (jsonData.success)
+            $('#loading-citizen').hide();
+            $('#loading-birth').hide();
+            $('#citizen_update_form').submit(function(e) {
+                e.preventDefault();
+                confirm('Etes vous sur de vouloir modifier le citoyen ?');
+                $.ajax({ 
+                    type: "POST",
+                    url: 'action/update-citizen.php',
+                    data: $(this).serialize(),
+                    beforeSend : function(){
+                        $('#loading-citizen').show();
+                    },
+                    success: function(response)
                     {
-                        // setTimeout(function () {
-                        //     window.location.href = "#";
-                        // },250);
-                        snackBarAllert(jsonData.message);
-                        console.log('Mise a jour effectuee');
+                        $('#loading-citizen').hide();
+                        var jsonData = JSON.parse(response);
+                        if (jsonData.success)
+                        {
+                            // setTimeout(function () {
+                            //     window.location.href = "#";
+                            // },250);
+                            snackBarAllert(jsonData.message);
+                            console.log('Mise a jour effectuee');
+                        }
+                        else
+                        {
+                            snackBarAllert(jsonData.message);
+                            console.log('Echec de mise a jour');
+                        }
                     }
-                    else
-                    {
-                        snackBarAllert(jsonData.message);
-                        console.log('Echec de mise a jour');
-                    }
-                }
+                });
             });
-        });
 
-        $('#citizen_update_certificate_form').submit(function(e) {
-            e.preventDefault();
-            confirm('Etes vous sur de vouloir poursuivre les modifications ?');
-            $.ajax({ 
-                type: "POST",
-                url: 'action/update-citizen-certificate.php',
-                data: $(this).serialize(),
-                success: function(response)
-                {
-                    console.log(response);
-                    var jsonData = JSON.parse(response);
-                    // console.log(jsonData);
-                    if (jsonData.success)
+            $('#citizen_update_certificate_form').submit(function(e) {
+                e.preventDefault();
+                confirm('Etes vous sur de vouloir poursuivre les modifications ?');
+                $.ajax({ 
+                    type: "POST",
+                    url: 'action/update-citizen-certificate.php',
+                    data: $(this).serialize(),
+                    beforeSend : function(){
+                        $('#loading-birth').show();
+                    },
+                    success: function(response)
                     {
-                        // setTimeout(function () {
-                        //     window.location.href = "dashboard.php";
-                        // },250);
-                        snackBarAllert(jsonData.message);
-                        // alert('Mise a jour effectuee');
+                        $('#loading-birth').hide();
+                        console.log(response);
+                        var jsonData = JSON.parse(response);
+                        // console.log(jsonData);
+                        if (jsonData.success)
+                        {
+                            // setTimeout(function () {
+                            //     window.location.href = "dashboard.php";
+                            // },250);
+                            snackBarAllert(jsonData.message);
+                            // alert('Mise a jour effectuee');
+                        }
+                        else
+                        {
+                            snackBarAllert(jsonData.message);
+                            // alert('Echec de mise a jour');
+                        }
                     }
-                    else
-                    {
-                        snackBarAllert(jsonData.message);
-                        // alert('Echec de mise a jour');
-                    }
-                }
+                });
             });
-        });
 
-    });
+        });
     </script>
 </body>
 

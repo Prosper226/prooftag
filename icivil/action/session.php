@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!sessionExist()){
-        header("refresh:0;url=login.php");
+        header("refresh:0;url=../../index.php");
         exit();
     }
     function sessionExist(){

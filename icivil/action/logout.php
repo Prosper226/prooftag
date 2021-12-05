@@ -8,5 +8,5 @@
     //     setcookie("d99ae8fde35c274fb42325a5186bd253",null, time()+ 1,'/','.levaal.com',0,1);
     // }
     session_destroy();
-    header('location:../login.php');
+    header('location:../../index.php');
 ?>

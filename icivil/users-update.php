@@ -217,7 +217,8 @@
                                                 <div class="col-lg-4"></div>
                                                 <div class="col-lg-8">
                                                     <div class="login-button-pro">
-                                                        <button type="submit" class="login-button login-button-lg">Modifier l'utilisateur</button>
+                                                        <button type="submit" class="btn btn-success">Modifier l'utilisateur</button>
+                                                        <img id="loading-user" src="img/spinner.gif" width="40"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -276,6 +277,7 @@
     <script src="js/main.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            $('#loading-user').hide();
             $('#user_update_form').submit(function(e) {
                 e.preventDefault();
                 confirm('Etes vous sur de vouloir modifier cet utilisateur ?');
@@ -283,8 +285,12 @@
                     type: "POST",
                     url: 'action/update-user.php',
                     data: $(this).serialize(),
+                    beforeSend : function(){
+                        $('#loading-user').show();
+                    },
                     success: function(response)
                     {
+                        $('#loading-user').hide();
                         var jsonData = JSON.parse(response);
                         if (jsonData.success)
                         {
