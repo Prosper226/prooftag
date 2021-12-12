@@ -18,7 +18,7 @@
                                 <div role="menu" class="dropdown-menu animated flipInX">
                                     <a href="citizens-list.php" class="dropdown-item">Consultation</a>
                                     <!-- <a href="#" class="dropdown-item">Modifications</a> -->
-                                    <a href="citizens-statistic.php" class="dropdown-item">Statistiques</a>
+                                    <!-- <a href="citizens-statistic.php" class="dropdown-item">Statistiques</a> -->
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
